@@ -1,0 +1,34 @@
+version: "3.7"
+
+services:
+  pvpgn:
+    restart: unless-stopped
+    container_name: pvpgn_server
+    image: wwmoraes/pvpgn-server
+    user: pvpgn
+    volumes:
+      - ./pvpgn/etc:/usr/local/pvpgn/etc
+      - ./pvpgn/var:/usr/local/pvpgn/var
+#    network_mode: "host"
+    ports:
+      - 4000:4000
+      - 6112:6112
+
+  ghostpp:
+    restart: unless-stopped
+    container_name: ghostpp_server
+    user: root
+    image: fatorin/ghostpp:1.3
+    network_mode: "host"
+#    ports:
+#      - 6113:6113
+##      - 6114:6114
+#      - 6115:6115
+#      - 6117:6117
+    volumes:
+      - ./ghostpp/war3:/app/war3
+      - ./ghostpp/config:/app/config
+      - ./ghostpp/maps:/app/maps
+      - ./ghostpp/ghost/gthost++:/app/gthost++
+    command: ./ghost++ "./config/ghost.cfg"
+

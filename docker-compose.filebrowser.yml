@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  filebrowser:
+    restart: unless-stopped
+    container_name: filebrowser_service
+    image: filebrowser/filebrowser
+    volumes:
+      - ./srv:/srv
+#      - ./filebrowser.db:/database.db
+#      - ./.filebrowser.json:/.filebrowser.json
+    ports:
+      - 8080:80
