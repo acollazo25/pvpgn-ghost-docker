@@ -2,4 +2,6 @@
 pvpgn/var
 pvpgn/etc
 ghostpp/config/ghost.cfg
+ghostpp/config/blizzard.j
+ghostpp/config/common.j
 help_repos
