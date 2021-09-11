@@ -4,7 +4,14 @@
 
 > **ℹ️ NOTE:** The Ghost configuration is designed to work with the ***Warcraft 1.26x*** client, but you can adjust it to work with ***1.28x*** or higher. The default map is ***dota-6.83d-en.w3x***, but any other is possible.
 
-### 📦 Export Pvpgn Data (LINUX / MAC)
+### ⬇️ Clone repo (*)
+
+```shell
+git clone https://github.com/acollazo25/pvpgn-ghost-docker.git
+cd pvpgn-ghost-docker
+```
+
+### 📦 Export pvpgn data (LINUX / MAC)
 
 ```shell
 mkdir "pvpgn"
@@ -12,7 +19,7 @@ docker run --rm -u root -v $PWD/pvpgn/var:/tmp/var wwmoraes/pvpgn-server cp -r /
 docker run --rm -u root -v $PWD/pvpgn/etc:/tmp/etc wwmoraes/pvpgn-server cp -r /usr/local/pvpgn/etc/pvpgn /tmp/etc
 ```
 
-### 📦 Export Pvpgn Data (WINDOWS)
+### 📦 Export pvpgn data (WINDOWS)
 
 ```shell
 mkdir "pvpgn"
@@ -31,7 +38,7 @@ docker-compose up -d
 1. List the IP assigned to your services.
 
 ```shell
-docker network inspect pgpgn-server_default
+docker network inspect pvpgn-ghost-docker_default
 ```
 
 ```shell
