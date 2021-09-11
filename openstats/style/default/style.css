@@ -1,0 +1,363 @@
+* {
+	/* Reset browsers default margin, padding and font sizes */
+	margin: 0;
+	padding: 0;
+        
+}
+html {
+	font-size: 100%;
+}
+/* BEGIN BASIC FORUM STYLES */
+body {
+	font-family: Verdana,Arial,Helvetica,sans-serif;
+ 	color: #4D628A;
+	font-size: 72.5%; /* This sets the default font size to be equivalent to 10px */
+    margin-left: auto;
+    margin-right: auto;
+	text-align: center;
+	border: 0px solid #FFFFFF;
+	background-color: #FAFAFA;
+	width: 100%;
+	height: 700px;
+}
+
+#wrapper {
+	height: auto !important;
+    margin-left: auto;
+    margin-right: auto;
+	text-align: center;
+	background-color: #F6F7FB;
+    border: 0px solid #F6F7FB;
+}
+
+A:link {
+color:#4D628A;text-decoration:none;
+}
+A:active {
+color:#4D628A; text-decoration:none;
+}
+A:visited {
+color:#4D628A; text-decoration:none;
+}
+A:hover {
+color:#000fff; text-decoration:none;
+}
+
+/* begin table styles */
+table {
+	border-collapse: collapse;
+	width: 100%; 
+	border: 1px solid #E5EEF9;
+}
+
+table.header{
+	border-collapse: collapse;
+	width: 100%;
+	border: 0px solid #F6F7FB;
+    text-align: left;
+}
+
+td {height:22px;}
+
+.tableA{
+width:95%;margin:8px;
+}
+
+.tableB{
+height:24px;
+}
+
+.tableC {
+width:95%;
+padding-left:22px;
+}
+
+.tableD {
+padding-top:1pt;
+padding-bottom:1pt;
+padding-left:4pt;
+}
+
+.tableItem {
+margin:8px;
+width:500px;
+}
+
+.ItemInfo {
+width:95%;
+padding-top:8pt;
+padding-bottom:8pt;
+padding-left:8pt;
+}
+
+.tableHeroPageTop {width:95%;}
+.tableHeroPage {margin-top:4px;width:96%;border: 0px solid #000;}
+.tableHeroPageTopCell {text-align:left;padding:12px;}
+.tableHeroPage {margin-top:4px;width:96%;border: 0px solid #000;}
+
+
+.tableUserRow { margin-top:4px; margin-bottom:4px; margin-left:4px; }
+.tableUserRowHero { padding-left:8px; }
+.bansRow { padding-right:4px; width:48px; }
+.topUserRow { padding-left:4px; }
+
+.tableNews {
+width:95%;
+line-height:13pt;
+padding-top:8pt;
+padding-bottom:8pt;
+padding-left:8pt;
+}
+
+.NewsText {
+width:95%;
+padding-top:8pt;
+padding-bottom:8pt;
+padding-right:120pt;
+padding-left:8pt;
+}
+
+.padLeft{
+padding-left:2px;
+}
+
+.padAll{
+padding:4px;
+}
+
+.tableSearchH {
+width:95%;margin-top:24px; margin-bottom:12px;
+}
+
+.tableSearchR{
+padding-left:4px; height:24px;
+}
+
+.inputSearch{
+height:24px;
+}
+
+.inputSearchButtons{
+height:32px;padding-left:4px;
+}
+
+
+.padLeft {
+padding-left:12px;
+}
+
+.leftReason {
+font-size:10px;
+}
+
+.Search{
+padding-left:4px; height:24px;
+}
+
+.row:hover
+{
+	color: #000000;
+	background-color: #D7DADF;
+}
+
+th {
+	background-color: #B40E1F;
+	border: 0px solid #FFFFFF;
+	color: #32475F;
+	font-weight: bold;
+	text-align: left;
+	font-size: 12px;
+	height: 28px;
+    background-image: url('./img/caption_top.gif');	
+}
+
+/* NOTE:  CSS3  (sorry, no IE support) */
+tr:nth-child(even) {background: #EDF0F5;}
+tr:nth-child(odd) {background: #F6F7FB;}
+
+tr.sentinelRow {
+background-color: #F5EDED; 
+border-right:1px solid #8CA5C6;
+border-left:1px solid #8CA5C6;
+border-bottom:1px solid #8CA5C6;
+}
+
+tr.scourgeRow {
+background-color: #EEF5ED; 
+border:1px solid #8CA5C6
+}
+
+.sentinelCol{
+color: #7A1F1F;
+}
+
+.scourgeCol{
+color: #155319;
+}
+
+
+/* Begin font styles */
+h1 { color: #638290;
+	font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size:22px; text-decoration: none;}
+
+h2 { font-family: Verdana,Arial,Helvetica,sans-serif; font-weight: bold;
+	font-size: 1.3em; text-decoration: none; line-height: 120% ;color: #5B78AC; }
+h3 { font-size: 1.3em; font-weight: bold; font-family: Verdana,Arial,Helvetica,sans-serif; line-height: 120%;}
+
+h4 {margin: 0; font-size: 1.1em; font-weight: bold; }
+
+p {font-size: 1.1em;}
+
+.alignleft {
+float: left;
+font-size: 12px;
+
+}
+.alignright {
+float: right;
+font-size: 12px;
+}
+
+.menuButtons {
+   cursor: pointer;
+   margin: 0;
+   margin-left:2px;
+   font-family: 'lucida grande','Lucida Sans Unicode', Tahoma, sans-serif;
+   font-size: 11px;
+   padding: 2px 5px 5px 5px;
+   background: url('./img/button_bg2.png') repeat-x center left #f8f8f8;
+   color: #FFFFFF;
+   text-shadow: 0 1px 0 #fff;
+   border: 1px solid #999;
+   -moz-border-radius: 6px;
+   -webkit-border-radius: 6px;
+
+}
+.menuButtons:hover{
+font-size: 11px;
+border-color: #7C8CB2;
+background-color:#6079AB;
+color:#4D628A;
+cursor: pointer;
+}
+
+.inputButton {
+   cursor: pointer;
+   margin: 0;
+   font-family: 'lucida grande','Lucida Sans Unicode', Tahoma, sans-serif;
+   font-size: 11px;
+   padding: 1px;
+   background: url('./img/button_bg2.png') repeat-x center left #f8f8f8;
+   color: #02475A;
+   text-shadow: 0 1px 0 #fff;
+   border: 1px solid #999;
+   -moz-border-radius: 3px;
+   -webkit-border-radius: 3px;
+}
+.inputButton:hover{
+border-color: #233C5F;
+background-color:#FFFFFF;
+color:red;
+cursor: pointer;
+}
+
+.pagination {
+	padding: 0px;
+	margin: 0px;
+	text-align:right;
+}
+
+.pagination a {
+	padding: 2px 3px 2px 3px;
+	margin: 1px;
+	border: 1px solid #AAAADD;
+	text-decoration: none; /* no underline */
+	color: #105289;
+
+}
+.pagination a:hover, .pagination a:active {
+	border: 1px solid #105289;
+
+	color: #000;
+}
+.pagination span.current {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+		border: 1px solid #105289;
+		
+		font-weight: bold;
+		background-color: #105289;
+		color: #FFF;
+	}
+	.pagination span.disabled {
+		padding: 2px 5px 2px 5px;
+		margin: 2px;
+		border: 1px solid #EEE;
+
+		color: #DDD;
+	}
+	
+td.pagination{
+height: 24px;
+}
+
+.GamesSentinel {color:#CF0002;}
+.GamesScourge {color:#00CF1D;}
+.GamesDraw {color:#E7BE00;}
+
+/* Replay Colors */
+.sentinel {text-align: left; color:#8D2323;}
+.scourge   {text-align: left; color:#04C500;}
+
+.all  {text-align:left; color:#939393;}
+
+.red       {color: #DD0000;}
+.blue     {color: #004EFF;}
+.teal     {color: #00EEEE;}
+.purple  {color: #7711AA;}
+.yellow  {color: #F0C600;}
+.orange  {color: #FF9900;}
+.dark-green  {color: #00751E;}
+.pink     {color: #FF66CC;}
+.gray {color: #888888;}
+.light-blue  {color: #55BBEE;}
+.darkgreen  {color: #006F3F;}
+.brown  {color: #6F3F00;}
+.observer  {color: #FFFFFF;}
+.GameSystem {color: #900101; text-align: left;}
+
+img.alpha {
+filter: alpha(opacity=10);
+-moz-opacity: 0.1;
+opacity: 0.1;
+}
+
+
+.Achieved{color:#FCFF00;}
+.NotAchieved{color:#6F6F6F;}
+
+.PositivePoints {color:#0DB900;}
+.NegativePoints {color:#B70000;}
+.DrawGame{color:#CB8100;}
+.DisconnectPoints{color:#D00005;}
+
+#dhtmltooltip{
+position: absolute;
+left: -300px;
+width: 150px;
+border: 1px solid #8CA5C6;
+padding: 8px;
+color: #4D628A;
+background-color: #F6F7FB;
+visibility: hidden;
+z-index: 100;
+filter: progid:DXImageTransform.Microsoft.Shadow(color=gray,direction=135);
+}
+
+#dhtmlpointer{
+position:absolute;
+left: -300px;
+z-index: 101;
+visibility: hidden;
+}

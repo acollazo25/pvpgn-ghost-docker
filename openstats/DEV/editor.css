@@ -1,0 +1,13 @@
+﻿/* modify these two classes */
+.editorWYSIWYG {font: 10pt Tahoma;border:none;}
+.editorBBCODE {font: 9pt "Courier New";}
+
+div.richeditor div.editbar {margin-top:6px;background-image:url('img/editor/editbar_bg.gif'); border-left:1px solid slategray;border-right:1px solid slategray;border-top:1px solid slategray;border-bottom:none; background-color:#F6F7FB; width:67.6%;}
+
+div.richeditor div button{vertical-align:middle;width:25px;height:25px;border:1px solid transparent;background-color:Transparent;cursor:pointer;color:Black;background-position:center;background-repeat:no-repeat;background-image:none;}
+
+div.richeditor div button:hover{border:1px solid silver;}
+
+div.richeditor textarea{padding:0px 0px 0px 0px;border-top:1px solid slategray;;border-bottom:1px solid slategray;border-left:1px solid slategray;border-right:1px solid slategray;}
+
+div.richeditor iframe{border-top:none;border-bottom:1px solid slategray;border-left:1px solid slategray;border-right:1px solid slategray;background-color:#ffffff;}

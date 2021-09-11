@@ -1,0 +1,92 @@
+
+    <div align='center'>
+    <table class='tableA'>
+	<tr>
+	<th width='38%'><div align='center'>{ALL_TIME_STATS}</div></th>
+	<th width='62%'><div align='center'>{HIGH_HERO_STATS}</div></th>
+	</tr>
+	<tr><td>
+	    <table border=0 class='tableUserRow'>
+	    <tr>
+	    <td align='right'><b>{L_KILLS}:</b> </td>
+		<td class='tableUserRowHero' align='left'>{KILLS}</td>
+	    <td align='right'><b>{L_ASSISTS}:</b></td>
+		<td class='tableUserRowHero' align='left'>{ASSISTS}</td> </tr>
+		
+		<tr><td align='right'><b>{L_DEATHS}:</b> </td>
+		<td class='tableUserRowHero' align='left'>{DEATHS}</td>
+	    <td align='right'><a onMouseout="hidetooltip()" onMouseover='tooltip("{TITLE_KD}: {KDRATIO}",150); return false'>
+		<b>{L_KD}:</b></a></td>
+		<td class='tableUserRowHero' align='left'>{KDRATIO}:1</td> </tr>
+		
+		<tr><td align='right'><b>{L_GAMES}:</b> </td>
+		<td class='tableUserRowHero' align='left'>{TOTGAMES}</td>
+	    <td align='right'> 
+		<a onMouseout="hidetooltip()" onMouseover='tooltip("{TITLE_WL}: {WINS}/{LOSSES}",150); return false'>
+		<b>{L_WL}:</b></a></td>
+		<td class='tableUserRowHero' align='left'>{WINS}/{LOSSES}</td> </tr>
+		
+		<tr><td align='right'><b>{L_SCORE}:</b> </td>
+		<td class='tableUserRowHero' align='left'>{TOTSCORE}</td>
+	    <td align='right'>
+		<a onMouseout="hidetooltip()" onMouseover='tooltip("{TITLE_WP}: {WL} %",150); return false'>
+		<b>{L_WIN_PERC}:</b></a></td>
+		<td class='tableUserRowHero' align='left'>{WL} %</td> </tr>
+		
+		<tr><td align='right'><b>{L_CREEP_K}:</b> </td>
+		<td class='tableUserRowHero' align='left'>{CREEPKILLS}</td>
+	    <td align='right'> <b>{L_TOWERS}:</b> </td>
+		<td class='tableUserRowHero' align='left'>{TOWERKILLS}</td> </tr>
+		
+		<tr><td align='right'><b>{L_CREEP_D}:</b> </td>
+		<td class='tableUserRowHero' align='left'>{CREEPDENIES}</td>
+	    <td align='right'> <b>{L_RAX}:</b> </td>
+		<td class='tableUserRowHero' align='left'>{RAX}</td> </tr>
+		
+		<tr><td align='right'>
+		<a onMouseout="hidetooltip()" onMouseover='tooltip("{TITLE_CPM}: {CREEPS_PER_MIN}",150); return false'>
+		<b>{L_CPM}:</b></a> </td>
+		<td class='tableUserRowHero' align='left'>{CREEPS_PER_MIN}</td>
+	    <td align='right'>
+		<a onMouseout="hidetooltip()" onMouseover='tooltip("{TITLE_KPG}: {KILLS_PER_GAME}",150); return false'>
+		<b>{L_KPG}:</b></a></td>
+		<td class='tableUserRowHero' align='left'>{KILLS_PER_GAME}</td> </tr>
+		
+		<tr><td align='right'><b>{L_COURIERS}:</b> </td>
+		<td class='tableUserRowHero' align='left'>{COURIER}</td>
+        <td align='right'>
+		<a onMouseout="hidetooltip()" onMouseover='tooltip("{TITLE_DISC}: {DISC}",150); return false'>
+		<b>{L_DISC}</b></a></td>
+		<td class='tableUserRowHero' align='left'>{DISC}</td></tr>
+		
+	    </table>
+		       <td class='tableUserRowHero'>
+			   <table style='text-align:center;'><tr>
+				       <td>{L_KILLS}</td>
+				       <td>{L_DEATHS}</td>
+				       <td>{L_ASSISTS}</td>
+				       <td>{L_WINS}</td>
+				       <td>{L_LOSSES}</td>
+				       <td>{L_PLAYED}</td> </tr>
+					   
+					   <tr>
+					   <td>{MKHERO}</td>
+				       <td>{MDHERO}</td>
+				       <td>{MAHERO}</td>
+				       <td>{MWHERO}</td>
+				       <td>{MLHERO}</td>
+				       <td>{MPHERO}</td> </tr>
+					   
+					   <tr>
+					   <td>({MKCOUNT})</td>
+				       <td>({MDCOUNT})</td>
+				       <td>({MACOUNT})</td>
+				       <td>({MWCOUNT})</td>
+				       <td>({MLCOUNT})</td>
+				       <td>({MPCOUNT})</td> </tr>
+				
+				</table>
+		
+	</tr>
+	</table>
+	        </div>

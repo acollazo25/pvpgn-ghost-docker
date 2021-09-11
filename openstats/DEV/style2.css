@@ -1,0 +1,276 @@
+* {
+	/* Reset browsers default margin, padding and font sizes */
+	margin: 0;
+	padding: 0;
+        
+}
+html {
+	font-size: 100%;
+}
+/* BEGIN BASIC FORUM STYLES */
+body {
+	font-family: Verdana,Arial,Helvetica,sans-serif;
+ 	color: #D9E6FE;
+	font-size: 72.5%; /* This sets the default font size to be equivalent to 10px */
+    margin-left: auto;
+    margin-right: auto;
+	text-align: center;
+	border: 0px solid #FFFFFF;
+	background-color: #000;
+	width: 100%;
+	height: 700px;
+	background-image: url('../style/dota/img/bg.jpg');
+	background-repeat:no-repeat;
+}
+
+#wrapper {
+	height: auto !important;
+    margin-left: auto;
+    margin-right: auto;
+	text-align: center;
+	background-color: #F6F7FB;
+    border: 0px solid #F6F7FB;
+}
+
+A:link {
+color:#FFAA00;text-decoration:none;
+}
+A:active {
+color:#FFAA00; text-decoration:none;
+}
+A:visited {
+color:#FFAA00; text-decoration:none;
+}
+A:hover {
+color:#FFAA00; text-decoration:none;
+}
+
+/* begin table styles */
+table {
+	border-collapse: collapse;
+	width: 100%; 
+	border: 1px solid #535E6C;
+}
+
+table.header{
+
+	border-collapse: collapse;
+	width: 100%;
+	border: 0px solid #F6F7FB;
+    text-align: center;
+}
+
+td {height:22px;}
+
+.row:hover
+{
+	color: #fff;
+	background-color: #30404D;
+}
+
+th {
+	background-color: #384B57;
+	border: 0px solid #FFFFFF;
+	color: #FFFFFF;
+	font-weight: bold;
+	text-align: left;
+	font-size: 12px;
+	height: 28px;
+    background-image: url('../style/dota/img/caption_top.gif');	
+}
+
+.tableA{
+width:95%;margin:8px;
+}
+
+.tableB{
+height:24px;
+}
+
+.tableC {
+width:95%;
+padding-left:22px;
+}
+
+.tableNews {
+width:95%;
+}
+
+.tableSearchH {
+width:95%;margin-top:24px; margin-bottom:12px;
+}
+
+.tableSearchR{
+padding-left:4px; height:24px;
+}
+
+.inputSearch{
+height:24px;
+}
+
+.inputSearchButtons{
+height:32px;padding-left:4px;
+}
+
+
+.padLeft {
+padding-left:12px;
+}
+
+.leftReason {
+font-size:10px;
+}
+
+.Search{
+padding-left:4px; height:24px;
+}
+
+/* NOTE:  CSS3  (sorry, no IE support) */
+tr:nth-child(even) {background: #171717;}
+tr:nth-child(odd) {background: #1B252E;}
+
+tr.sentinelRow {
+background-image: url('./img/sentinel_row.gif');	
+background-color: #000; 
+}
+
+tr.scourgeRow {
+background-image: url('./img/scourge_row.gif');	
+background-color: #000; 
+
+}
+
+.sentinelCol{
+color: #F5EDED;
+}
+
+.scourgeCol{
+color: #F1FFEC;
+}
+
+
+
+tr.scourgeRow {
+background-color: #EEF5ED; 
+border:1px solid #8CA5C6
+}
+
+/* Begin font styles */
+h1 { color: #638290;
+	font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size:22px; text-decoration: none;}
+
+h2 { font-family: Verdana,Arial,Helvetica,sans-serif; font-weight: bold;
+	font-size: 1.3em; text-decoration: none; line-height: 120% ;color: #5B78AC; }
+h3 { font-size: 1.3em; font-weight: bold; font-family: Verdana,Arial,Helvetica,sans-serif; line-height: 120%;}
+
+h4 {margin: 0; font-size: 1.1em; font-weight: bold; }
+
+p {font-size: 1.1em;}
+
+.alignleft {
+float: left;
+font-size: 12px;
+
+}
+.alignright {
+float: right;
+font-size: 12px;
+}
+
+.menuButtons {
+   cursor: pointer;
+   margin: 0;
+   margin-left:2px;
+   font-family: 'lucida grande','Lucida Sans Unicode', Tahoma, sans-serif;
+   font-size: 11px;
+   padding: 2px 5px 5px 5px;
+   background: url('./img/button_bg.png') repeat-x center left #f8f8f8;
+   color: #FFFFFF;
+   
+   border: 1px solid #999;
+   -moz-border-radius: 6px;
+   -webkit-border-radius: 6px;
+
+}
+.menuButtons:hover{
+font-size: 11px;
+border-color: #7C8CB2;
+background-color:#6079AB;
+background: url('./img/button_bg2.png') repeat-x center left #f8f8f8;
+color:#D9E6FE;
+cursor: pointer;
+}
+
+.inputButton {
+   cursor: pointer;
+   margin: 0;
+   font-family: 'lucida grande','Lucida Sans Unicode', Tahoma, sans-serif;
+   font-size: 11px;
+   padding: 1px;
+   background-color:#384B57;
+   color: #FFAA00;
+   border: 1px solid #999;
+   -moz-border-radius: 6px;
+   -webkit-border-radius: 6px;
+}
+.inputButton:hover{
+background-color:#4B6575;
+color:red;
+cursor: #D10303;
+}
+
+.pageButtons{
+   cursor: pointer;
+   margin: 0;
+   font-family: Verdana,Arial,Helvetica,sans-serif;
+   font-weight: bold;
+   text-align: left;
+   font-size: 12px;
+   padding: 1px;
+   background-color:transparent;
+   color: #FFAA00;
+   border: 0px solid #999;
+   -moz-border-radius: 6px;
+   -webkit-border-radius: 6px;
+}
+
+.pagination {
+	padding-right: 8px;
+	margin: 0px;
+	text-align:right;
+}
+
+.pagination a {
+	padding: 2px 3px 2px 3px;
+	margin: 1px;
+	border: 1px solid #AAAADD;
+	text-decoration: none; /* no underline */
+	color: #fff;
+
+}
+.pagination a:hover, .pagination a:active {
+	border: 1px solid #105289;
+
+	color: #FFAA00;
+}
+.pagination span.current {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+		border: 1px solid #105289;
+		
+		font-weight: bold;
+		background-color: #105289;
+		color: #FFF;
+	}
+	.pagination span.disabled {
+		padding: 2px 5px 2px 5px;
+		margin: 2px;
+		border: 1px solid #EEE;
+
+		color: #DDD;
+	}
+	
+td.pagination{
+height: 24px;
+}
