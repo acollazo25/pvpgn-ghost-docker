@@ -5,20 +5,19 @@ services:
     restart: unless-stopped
     container_name: pvpgn_server
     image: wwmoraes/pvpgn-server
-    user: root
-    volumes:
-      - ./pvpgn/etc:/usr/local/pvpgn/etc
-      - ./pvpgn/var:/usr/local/pvpgn/var
     ports:
       - 4000:4000
       - 6112:6112
-      - 6200:6200
+    volumes:
+      - ./pvpgn/etc:/usr/local/pvpgn/etc
+      - ./pvpgn/var:/usr/local/pvpgn/var
 
   ghostpp:
     restart: unless-stopped
     container_name: ghostpp_server
+    depends_on:
+      - pvpgn
     image: fatorin/ghostpp:1.3
-    user: root
     ports:
       - 6113:6113
       - 6114:6114
@@ -28,3 +27,38 @@ services:
       - ./ghostpp/maps:/app/maps
     command: ./ghost++ "./config/ghost.cfg"
 
+  ghostpp_db:
+    restart: unless-stopped
+    container_name: ghostpp_databse
+    depends_on:
+      - ghostpp
+    image: mysql:5.7
+    volumes:
+      - ./ghostpp/database:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: "ghost"
+      MYSQL_USER: "ghost"
+      MYSQL_PASSWORD: "secret" # this is not a risk
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+
+  stats:
+    restart: unless-stopped
+    container_name: stats_server
+    depends_on:
+      - ghostpp_db
+    image: php:5.4-apache
+    volumes:
+      - ./openstats:/var/www/html
+    ports:
+      - 8081:80
+
+  phpmyadmin:
+    restart: unless-stopped
+    container_name: ghostpp_database_admin
+    depends_on:
+      - ghostpp_db
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 127.0.0.1:8085:80
+    environment:
+      PMA_HOST: ghostpp_db

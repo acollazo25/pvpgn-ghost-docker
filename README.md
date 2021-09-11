@@ -31,10 +31,30 @@ docker run --rm -u root -v %CD%/pvpgn/var:/tmp/var wwmoraes/pvpgn-server cp -r /
 docker run --rm -u root -v %CD%/pvpgn/etc:/tmp/etc wwmoraes/pvpgn-server cp -r /usr/local/pvpgn/etc/pvpgn /tmp/etc
 ```
 
+### 📊 Create Database Schemas, Populate and Setup Stats (*)
+1. Seed database.
+```shell
+docker-compose up -d ghostpp_db
+docker exec -i ghostpp_databse mysql -ughost -psecret ghost < ghostpp/db-schema.sql
+docker exec -i ghostpp_databse mysql -ughost -psecret ghost < ghostpp/db-populate.sql
+docker exec -i ghostpp_databse mysql -uroot ghost < ghostpp/mysql-settings.sql
+```
+2. Install mysql required extensions.
+```shell
+docker-compose exec stats docker-php-ext-install mysql
+docker-compose restart stats
+```
+3. Set stats page. Edit the file `pvpgn/etc/pvpgn/anongame_infos.conf` and set the following settings.
+```shell
+...
+server_URL = http://<your-public-ip>:8081/
+...
+```
+
 ### 🚩 Start services (*)
 
 ```shell
-docker-compose up -d
+docker-compose up -d pvpgn ghostpp
 ```
 
 ### 🔀 Configure address translation for docker network (*)
@@ -120,15 +140,6 @@ bnet_rootadmin = yourAccount friendAccount otherFriend
 
 1. To see the list of available commands visit [Ghost++ Commands](https://wiki.eurobattle.net/index.php/Ghost++:Commands)
 
-### 🎉 Acknowledgements
--   [🙌 Pvpgn Docker Repo](https://github.com/wwmoraes/pvpgn-server-docker)
--   [🙌 Ghost++ Docker Repo](https://github.com/Fatorin/ghostpp_docker)
--   [🙌 Pvpgn Official Page](https://pvpgn.pro/)
--   [🙌 Ghost++ Stable Repo](https://github.com/uakfdotb/ghostpp)
-
-### 📊 Stats
-In process...
-
 ### 📄 View Logs
 #### Pvpgn Logs
 ```shell
@@ -138,3 +149,17 @@ tail -f 50 pvpgn/var/pvpgn/bnetd.log
 ```shell
 docker-compose logs -f --tail 50 ghostpp
 ```
+#### Stats Logs
+```shell
+docker-compose logs -f --tail 50 stats
+```
+#### Database Logs
+```shell
+docker-compose logs -f --tail 50 ghostpp_db
+```
+
+### 🎉 Acknowledgements
+-   [🙌 Pvpgn Docker Repo](https://github.com/wwmoraes/pvpgn-server-docker)
+-   [🙌 Ghost++ Docker Repo](https://github.com/Fatorin/ghostpp_docker)
+-   [🙌 Pvpgn Official Page](https://pvpgn.pro/)
+-   [🙌 Ghost++ Stable Repo](https://github.com/uakfdotb/ghostpp)
