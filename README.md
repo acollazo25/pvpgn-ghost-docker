@@ -38,9 +38,13 @@ docker run --rm -u root -v %CD%/pvpgn/etc:/tmp/etc wwmoraes/pvpgn-server cp -r /
 
 ### ⚙ Copy default config
 1. Copy `.env.example` to `.env`.  Configure the `.env` for the [ssl termination](https://github.com/evertramos/nginx-proxy-automation) of the statistics website, otherwise you can ignore it and continue with the next step.
-> Even if the `.env` file is not configured it **must exist** in the root of the directory.
+> Even if SSL termination is not configured the `.env` file **must exist** in the root of the directory.
 ```shell
 cp .env.example .env
+```
+⚠ If SSL termination is not configured you must create a default proxy network.
+```shell
+docker network create proxy
 ```
 
 ### 🚚 Create Database Schemas and run seeders (*)
@@ -63,6 +67,11 @@ docker-compose restart stats
 ```shell
 ...
 server_URL = http://<your-public-ip>:8081/
+...
+or
+...
+# SSL Configured
+server_URL = https://your-stats-domain.com
 ...
 ```
 

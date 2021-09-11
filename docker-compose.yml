@@ -54,8 +54,8 @@ services:
       - 8081:80
     env_file:
       - .env
-#    networks:
-#      - proxy
+    networks:
+      - proxy
 
   phpmyadmin:
     restart: unless-stopped
