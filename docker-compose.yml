@@ -5,6 +5,7 @@ services:
     restart: unless-stopped
     container_name: pvpgn_server
     image: wwmoraes/pvpgn-server
+    user: root
     ports:
       - 4000:4000
       - 6112:6112

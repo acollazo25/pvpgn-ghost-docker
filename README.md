@@ -41,6 +41,7 @@ docker exec -i ghostpp_databse mysql -uroot ghost < ghostpp/mysql-settings.sql
 ```
 2. Install mysql required extensions.
 ```shell
+docker-compose up -d stats
 docker-compose exec stats docker-php-ext-install mysql
 docker-compose restart stats
 ```
