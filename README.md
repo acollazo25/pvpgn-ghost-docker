@@ -1,6 +1,6 @@
 # 🕶 PVPGN PRO ➕ GHOST++ ➕ WEB STATS
 
-# Deployment (WINDOWS / LINUX / MAC)
+## Deployment (WINDOWS / LINUX / MAC)
 
 > **ℹ️ NOTE:** The Ghost configuration is designed to work with the ***Warcraft 1.26x*** client, but you can adjust it to work with ***1.28x*** or higher. The default map is ***dota-6.83d-en.w3x***, but any other is possible.
 
