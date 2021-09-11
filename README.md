@@ -1,9 +1,9 @@
 # 🕶 PVPGN PRO ➕ GHOST++ ➕ WEB STATS
-<div align="center">
+
 ![Status](https://img.shields.io/badge/status-active-success.svg)
 [![GitHub Issues](https://img.shields.io/github/issues/acollazo25/pvpgn-ghost-docker.svg)](https://github.com/acollazo25/pvpgn-ghost-docker/issues)
 [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/wwmoraes/pvpgn-server-docker.svg)](https://github.com/acollazo25/pvpgn-ghost-docker/pulls)
-</div>
+---
 
 ## Deployment (WINDOWS / LINUX / MAC)
 
