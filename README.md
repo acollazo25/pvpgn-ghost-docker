@@ -4,6 +4,10 @@
 
 > **ℹ️ NOTE:** The Ghost configuration is designed to work with the ***Warcraft 1.26x*** client, but you can adjust it to work with ***1.28x*** or higher. The default map is ***dota-6.83d-en.w3x***, but any other is possible.
 
+### 🛠 Requirements
+1. [Docker](https://www.docker.com/products/docker-desktop)
+2. [Docker Compose](https://docs.docker.com/compose/install/)
+
 ### ⬇️ Clone repo (*)
 
 ```shell
@@ -100,7 +104,7 @@ bnet_password = secret
 
 ### 🎮 Invite friends and play (*)
 
-1. AYou and your friends can now add this battlenet server, create an account, and join the self-created game.
+1. You and your friends can now add this battlenet server, create an account, and join the self-created game.
 
 ### 🕹 Commands (*)
 
