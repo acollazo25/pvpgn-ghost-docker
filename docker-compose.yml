@@ -12,6 +12,8 @@ services:
     volumes:
       - ./pvpgn/etc:/usr/local/pvpgn/etc
       - ./pvpgn/var:/usr/local/pvpgn/var
+    networks:
+      - internal
 
   ghostpp:
     restart: unless-stopped
@@ -27,6 +29,8 @@ services:
       - ./ghostpp/config:/app/config
       - ./ghostpp/maps:/app/maps
     command: ./ghost++ "./config/ghost.cfg"
+    networks:
+      - internal
 
   ghostpp_db:
     restart: unless-stopped
@@ -41,6 +45,8 @@ services:
       MYSQL_USER: "ghost"
       MYSQL_PASSWORD: "secret" # this is not a risk
       MYSQL_ALLOW_EMPTY_PASSWORD: 1
+    networks:
+      - internal
 
   stats:
     restart: unless-stopped
@@ -55,6 +61,7 @@ services:
     env_file:
       - .env
     networks:
+      - internal
       - proxy
 
   phpmyadmin:
@@ -67,7 +74,11 @@ services:
       - 127.0.0.1:8085:80
     environment:
       PMA_HOST: ghostpp_db
+    networks:
+      - internal
 
 networks:
+  internal:
   proxy:
     external: true
+

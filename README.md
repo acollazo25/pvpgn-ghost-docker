@@ -83,32 +83,14 @@ docker-compose up -d pvpgn ghostpp
 
 ### 🔀 Configure address translation for docker network (*)
 
-1. List the IP assigned to your services.
+1. Get the IP assigned to your `ghostpp` service.
 
 ```shell
-docker network inspect pvpgn-ghost-docker_default
+docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' ghostpp_server
 ```
-
 ```shell
-[
-...
-    "Containers": {
-        "247f8eda218b132456c66f87d593814a03050395dc5b918484d107815d9291ed": {
-            "Name": "ghostpp_server",
-            "IPv4Address": "192.168.128.3/20",
-            ...
-        },
-        "9ea1220da14616d4d73c41217d20b6a8906af7b562c51b3e54272745158d530f": {
-            "Name": "pvpgn_server",
-            "IPv4Address": "192.168.128.2/20",
-            ...
-        }
-    },
-...
-]
+'192.168.224.3'
 ```
-
-- `92.168.128.2`: **pvpgn-service-ip**
 - `92.168.128.3`: **ghostpp-service-ip**
 
 2. In the first line of the `pvpgn/etc/pvpgn/address_translation.conf` file add the following.
