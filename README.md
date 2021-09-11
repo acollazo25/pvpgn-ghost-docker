@@ -36,7 +36,14 @@ docker run --rm -u root -v %CD%/pvpgn/var:/tmp/var wwmoraes/pvpgn-server cp -r /
 docker run --rm -u root -v %CD%/pvpgn/etc:/tmp/etc wwmoraes/pvpgn-server cp -r /usr/local/pvpgn/etc/pvpgn /tmp/etc
 ```
 
-### 📊 Create Database Schemas, Populate and Setup Stats (*)
+### ⚙ Copy default config
+1. Copy `.env.example` to `.env`.  Configure the `.env` for the [ssl termination](https://github.com/evertramos/nginx-proxy-automation) of the statistics website, otherwise you can ignore it and continue with the next step.
+> Even if the `.env` file is not configured it **must exist** in the root of the directory.
+```shell
+cp .env.example .env
+```
+
+### 🚚 Create Database Schemas and run seeders (*)
 1. Seed database.
 ```shell
 docker-compose up -d ghostpp_db
@@ -44,20 +51,22 @@ docker exec -i ghostpp_databse mysql -ughost -psecret ghost < ghostpp/db-schema.
 docker exec -i ghostpp_databse mysql -ughost -psecret ghost < ghostpp/db-populate.sql
 docker exec -i ghostpp_databse mysql -uroot ghost < ghostpp/mysql-settings.sql
 ```
-2. Install mysql required extensions.
+
+### 📊 Setup Stats (*)
+1. Install mysql required extensions.
 ```shell
 docker-compose up -d stats
 docker-compose exec stats docker-php-ext-install mysql
 docker-compose restart stats
 ```
-3. Set stats page. Edit the file `pvpgn/etc/pvpgn/anongame_infos.conf` and set the following settings.
+2. Set stats page. Edit the file `pvpgn/etc/pvpgn/anongame_infos.conf` and set the following settings.
 ```shell
 ...
 server_URL = http://<your-public-ip>:8081/
 ...
 ```
 
-### 🚩 Start services (*)
+### 🚩 Start pvpgn and ghostpp services (*)
 
 ```shell
 docker-compose up -d pvpgn ghostpp

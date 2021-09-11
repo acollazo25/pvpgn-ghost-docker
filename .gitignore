@@ -1,4 +1,5 @@
 .idea
+.env
 pvpgn/var
 pvpgn/etc
 ghostpp/database
@@ -6,3 +7,5 @@ ghostpp/config/ghost.cfg
 ghostpp/config/blizzard.j
 ghostpp/config/common.j
 help_repos
+docker-compose.v1.yml
+docker-compose.v2.yml

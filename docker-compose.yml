@@ -52,6 +52,10 @@ services:
       - ./openstats:/var/www/html
     ports:
       - 8081:80
+    env_file:
+      - .env
+#    networks:
+#      - proxy
 
   phpmyadmin:
     restart: unless-stopped
@@ -63,3 +67,7 @@ services:
       - 127.0.0.1:8085:80
     environment:
       PMA_HOST: ghostpp_db
+
+networks:
+  proxy:
+    external: true
