@@ -151,7 +151,7 @@ $UserPointsOnGamePage = '1';
 //This will also take up much more resources (queries)
 $AccuratePointsCalculation = '0';
 
-$head_admin = 'bot';
+$head_admin = 'TheBot';
 $bot_name = 'Ghost bot';
 
 $LEAVER = 'LEAVER';
