@@ -100,11 +100,21 @@ bnet_username = bot
 bnet_password = secret
 ...
 ```
-3. Restart ghost service `docker restart ghostpp`
+3. Restart ghost service `docker-compose restart ghostpp`
 
 ### 🎮 Invite friends and play (*)
 
 1. You and your friends can now add this battlenet server, create an account, and join the self-created game.
+
+### 👮‍♂️ Adding root admins
+
+1. Edit the file `ghostpp/config/ghost.cfg` and set the following settings.
+```shell
+...
+bnet_rootadmin = yourAccount friendAccount otherFriend
+...
+```
+2. Restart ghost service `docker-compose restart ghostpp`
 
 ### 🕹 Commands (*)
 
@@ -118,3 +128,13 @@ bnet_password = secret
 
 ### 📊 Stats
 In process...
+
+### 📄 View Logs
+#### Pvpgn Logs
+```shell
+tail -f 50 pvpgn/var/pvpgn/bnetd.log
+```
+#### Ghost++ Logs
+```shell
+docker-compose logs -f --tail 50 ghostpp
+```
