@@ -1,5 +1,9 @@
 # 🕶 PVPGN PRO ➕ GHOST++ ➕ WEB STATS
 
+![Status](https://img.shields.io/badge/status-active-success.svg)
+[![GitHub Issues](https://img.shields.io/github/issues/acollazo25/pvpgn-ghost-docker.svg)](https://github.com/acollazo25/pvpgn-ghost-docker/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/wwmoraes/pvpgn-server-docker.svg)](https://github.com/acollazo25/pvpgn-ghost-docker/pulls)
+
 ## Deployment (WINDOWS / LINUX / MAC)
 
 > **ℹ️ NOTE:** The Ghost configuration is designed to work with the ***Warcraft 1.26x*** client, but you can adjust it to work with ***1.28x*** or higher. The default map is ***dota-6.83d-en.w3x***, but any other is possible.
