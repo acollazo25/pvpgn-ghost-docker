@@ -165,7 +165,8 @@ docker-compose logs -f --tail 50 ghostpp_db
 ```
 
 ### 🎉 Acknowledgements
--   [🙌 Pvpgn Docker Repo](https://github.com/wwmoraes/pvpgn-server-docker)
--   [🙌 Ghost++ Docker Repo](https://github.com/Fatorin/ghostpp_docker)
 -   [🙌 Pvpgn Official Page](https://pvpgn.pro/)
+-   [🙌 Pvpgn Stable Repo](https://github.com/pvpgn/pvpgn-server)
+-   [🙌 Pvpgn Docker Repo](https://github.com/wwmoraes/pvpgn-server-docker)
 -   [🙌 Ghost++ Stable Repo](https://github.com/uakfdotb/ghostpp)
+-   [🙌 Ghost++ Docker Repo](https://github.com/Fatorin/ghostpp_docker)
