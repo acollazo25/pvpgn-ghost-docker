@@ -8,6 +8,4 @@ ghostpp/config/ghost.*.cfg
 ghostpp/config/blizzard.j
 ghostpp/config/common.j
 help_repos
-docker-compose.v1.yml
-docker-compose.v2.yml
-docker-compose.v3.yml
+docker-compose.v*.yml

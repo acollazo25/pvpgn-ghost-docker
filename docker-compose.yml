@@ -9,11 +9,23 @@ services:
     ports:
       - 4000:4000
       - 6112:6112
+      - 4000:4000/udp
+      - 6112:6112/udp
     volumes:
       - ./pvpgn/etc:/usr/local/pvpgn/etc
       - ./pvpgn/var:/usr/local/pvpgn/var
     networks:
       - internal
+
+  pvpgn-linux:
+    restart: unless-stopped
+    container_name: pvpgn_server_linux
+    image: wwmoraes/pvpgn-server
+    user: root
+    network_mode: "host"
+    volumes:
+      - ./pvpgn/etc:/usr/local/pvpgn/etc
+      - ./pvpgn/var:/usr/local/pvpgn/var
 
   ghostpp:
     restart: unless-stopped
