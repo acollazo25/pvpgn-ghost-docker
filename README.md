@@ -52,17 +52,7 @@ cp ghostpp/.env.example ghostpp/.env
 docker network create proxy
 ```
 
-### 🚚 Setup Pvpgn Database (LINUX)
-1. Edit the file `pvpgn/etc/pvpgn/bnetd.conf` and set the following settings.
-```shell
-storage_path = "sql:mode=mysql;host=127.0.0.1;name=bnetd;user=bnetd;pass=secret;default=0;prefix=pvpgn_"
-```
-1. Up pvpgn database.
-```shell
-docker-compose up -d pvpgn-db
-```
-
-### 🚚 Setup Pvpgn Database (WINDOWS /  MAC)
+### 🚚 Setup Pvpgn Database (*)
 1. Edit the file `pvpgn/etc/pvpgn/bnetd.conf` and set the following settings.
 ```shell
 storage_path = "sql:mode=mysql;host=pvpgn-db;name=bnetd;user=bnetd;pass=secret;default=0;prefix=pvpgn_"
@@ -80,16 +70,10 @@ docker exec -i ghostpp_databse mysql -ughost -psecret ghost < ghostpp/db-schema.
 docker exec -i ghostpp_databse mysql -ughost -psecret ghost < ghostpp/db-populate.sql
 ```
 
-### 🚩 Start pvpgn, d2cs, d2dbs and ghostpp services (WINDOWS / MAC)
+### 🚩 Start pvpgn, d2cs, d2dbs and ghostpp services (*)
  
 ```shell
 docker-compose up -d pvpgn d2cs d2dbs ghostpp
-```
-
-### 🚩 Start pvpgn, d2cs, d2dbs and ghostpp services (LINUX)
-
-```shell
-docker-compose up -d pvpgn-linux d2cs d2dbs ghostpp
 ```
 
 ### 🔀 Configure address translation for docker network (*)
@@ -119,7 +103,7 @@ docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' ghos
 2. Open your Warcraft client, go to battlenet and create a bot account, example user `bot` password `secret`.
 3. Login and put any email.
 
-### ⚙️ Ghost Configuration (WINDOWS / MAC)
+### ⚙️ Ghost Configuration (*)
 
 1. Copy the `ghostpp/config/default.cfg` to `ghostpp/config/ghost.cfg`.
 ```shell
@@ -127,17 +111,6 @@ cp ghostpp/config/default.cfg ghostpp/config/ghost.cfg
 ```
 2. Edit the file `ghostpp/config/ghost.cfg` and set the following settings. This is enough to start.
 ```shell
-bnet_username = bot
-bnet_password = secret
-```
-3. Restart ghost service `docker-compose restart ghostpp`
-
-### ⚙️ Ghost Configuration (LINUX)
-
-1. Edit the file `ghostpp/config/ghost.cfg` and set the following settings. This is enough to start.
-```shell
-bnet_server = <your-public-ip>
-...
 bnet_username = bot
 bnet_password = secret
 ```
@@ -198,29 +171,24 @@ or
 # SSL Configured
 server_URL = https://dota-stats-domain.com
 ```
-3. Restart pvpgn server (WINDOWS / MAC)
+3. Restart pvpgn server
 ```shell
 docker-compose restart pvpgn
 ```
-3. Restart pvpgn server (LINUX)
-```shell
-docker-compose restart pvpgn-linux
-```
 4. Open in browser [Pvpgn Stats](🌐 http://127.0.0.1:9081/)
 
-### 📄 View Logs
-#### Pvpgn Logs (WINDOWS / MAC)
+### 📄 View Logs (*)
+#### Pvpgn Logs
 ```shell
 docker-compose logs -f --tail 200 pvpgn
 ```
-#### Pvpgn Logs (LINUX)
-```shell
-docker-compose logs -f --tail 200 pvpgn-linux
-```
-#### Ghost++ Logs (*)
+#### Ghost++ Logs
 ```shell
 docker-compose logs -f --tail 200 ghostpp
 ```
+
+### ✉️ Contact
+[Creating a issue](https://github.com/acollazo25/pvpgn-ghost-docker/issues)
 
 ### 🎉 Acknowledgements
 -   [🙌 Pvpgn Official Page](https://pvpgn.pro/)
