@@ -77,7 +77,7 @@ services:
     ports:
       - 9082:80
     env_file:
-      - .env-pvpgn
+      - pvpgn/.env
     networks:
       - internal
       - proxy
@@ -139,7 +139,7 @@ services:
     ports:
       - 9081:80
     env_file:
-      - .env-ghostpp
+      - ghostpp/.env
     networks:
       - internal
       - proxy

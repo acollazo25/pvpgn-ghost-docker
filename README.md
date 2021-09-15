@@ -37,15 +37,15 @@ docker run --rm -v %CD%/pvpgn/etc:/tmp/etc ender25/pvpgn-server:bnetd-d2cs-d2dbs
 ```
 
 ### ⚙ Copy default config (*)
-1. Copy `.env.example` to `.env-pvpgn`.  Configure the `.env-pvpgn` for the [ssl termination](https://github.com/evertramos/nginx-proxy-automation) of the statistics website, otherwise you can ignore it and continue with the next step.
-> Even if SSL termination is not configured the `.env-pvpgn` file **must exist** in the root of the directory.
+1. Copy `pvpgn/.env.example` to `pvpgn/.env`.  Configure the `pvpgn/.env` for the [ssl termination](https://github.com/evertramos/nginx-proxy-automation) of the statistics website, otherwise you can ignore it and continue with the next step.
+> Even if SSL termination is not configured the `pvpgn/.env` file **must exist** in the root of the directory.
 ```shell
-cp .env.example .env-pvpgn
+cp pvpgn/.env.example pvpgn/.env
 ```
-2. Copy `.env.example` to `.env-ghostpp`.  Configure the `.env-ghostpp` for the [ssl termination](https://github.com/evertramos/nginx-proxy-automation) of the statistics website, otherwise you can ignore it and continue with the next step.
-> Even if SSL termination is not configured the `.env-ghostpp` file **must exist** in the root of the directory.
+2. Copy `ghostpp/.env.example` to `ghostpp/.env`.  Configure the `ghostpp/.env` for the [ssl termination](https://github.com/evertramos/nginx-proxy-automation) of the statistics website, otherwise you can ignore it and continue with the next step.
+> Even if SSL termination is not configured the `ghostpp/.env` file **must exist** in the root of the directory.
 ```shell
-cp .env.example .env-ghostpp
+cp ghostpp/.env.example ghostpp/.env
 ```
 ⚠ If SSL termination is not configured you must create a default proxy network.
 ```shell
@@ -167,21 +167,7 @@ cp pvpgn-stats/config.inc.example.php pvpgn-stats/config.inc.php
 ```shell
 server_URL = http://<your-public-ip>:8081/
 ```
-2. Edit `pvpgn-stats/config.inc.php` and set the following settings. (WINDWOS / MAC)
-```shell
-...
-$db_host = "pvpgn-db";
-...
-# SSL Configured
-$homepage = "https://stats-domain.com/";
-$ladderroot = "https://stats-domain.com/"; # include last /
-...
-```
-2. Edit `pvpgn-stats/config.inc.php` and set the following settings. (LINUX)
-```shell
-...
-$db_host = "127.0.0.1";
-...
+2. Edit `pvpgn-stats/config.inc.php` and set the following settings.
 # SSL Configured
 $homepage = "https://stats-domain.com/";
 $ladderroot = "https://stats-domain.com/"; # include last /

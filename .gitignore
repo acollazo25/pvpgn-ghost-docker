@@ -1,7 +1,7 @@
 .idea
 .env
-.env-pvpgn
-.env-ghostpp
+pvpgn/.env
+ghostpp/.env
 pvpgn/var
 pvpgn/etc
 pvpgn/database
