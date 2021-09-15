@@ -86,7 +86,6 @@ services:
     restart: unless-stopped
     container_name: ghostpp_server
     depends_on:
-      - pvpgn
       - ghostpp-db
     image: fatorin/ghostpp:1.3
     ports:
@@ -103,7 +102,7 @@ services:
     restart: unless-stopped
     container_name: ghostpp_2_server
     depends_on:
-      - pvpgn
+      - ghostpp-db
     image: fatorin/ghostpp:1.3
     ports:
       - 6322:6322
@@ -152,8 +151,7 @@ services:
       - ghostpp-db
     image: phpmyadmin/phpmyadmin
     ports:
-      - 8085:80 # TODO: Change
-#      - 127.0.0.1:8085:80
+      - 127.0.0.1:8085:80
     environment:
       PMA_HOSTS: "pvpgn-db,ghostpp-db"
     networks:
