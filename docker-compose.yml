@@ -9,6 +9,10 @@ services:
     ports:
       - 6112:6112
       - 6112:6112/udp
+      - 6200:6200
+      - 6200:6200/udp
+      - 4000:4000
+      - 4000:4000/udp
     volumes:
       - ./pvpgn/etc/pvpgn:/usr/local/etc/pvpgn
       - ./pvpgn/var/pvpgn:/usr/local/var/pvpgn
