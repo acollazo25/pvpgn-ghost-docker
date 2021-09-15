@@ -4,38 +4,94 @@ services:
   pvpgn:
     restart: unless-stopped
     container_name: pvpgn_server
-    image: wwmoraes/pvpgn-server
-    user: root
+    image: ender25/pvpgn-server:bnetd-mysql
     ports:
-      - 4000:4000
       - 6112:6112
-      - 4000:4000/udp
       - 6112:6112/udp
     volumes:
-      - ./pvpgn/etc:/usr/local/pvpgn/etc
-      - ./pvpgn/var:/usr/local/pvpgn/var
+      - ./pvpgn/etc/pvpgn:/usr/local/etc/pvpgn
+      - ./pvpgn/var/pvpgn:/usr/local/var/pvpgn
     networks:
       - internal
 
   pvpgn-linux:
+      restart: unless-stopped
+      container_name: pvpgn_linux_server
+      image: ender25/pvpgn-server:bnetd-mysql
+      network_mode: "host"
+      volumes:
+        - ./pvpgn/etc/pvpgn:/usr/local/etc/pvpgn
+        - ./pvpgn/var/pvpgn:/usr/local/var/pvpgn
+
+  d2cs:
     restart: unless-stopped
-    container_name: pvpgn_server_linux
-    image: wwmoraes/pvpgn-server
-    user: root
-    network_mode: "host"
+    container_name: d2cs_server
+    image: ender25/pvpgn-server:d2cs-mysql
+    ports:
+      - 6113:6113
+      - 6113:6113/udp
     volumes:
-      - ./pvpgn/etc:/usr/local/pvpgn/etc
-      - ./pvpgn/var:/usr/local/pvpgn/var
+      - ./pvpgn/etc/pvpgn:/usr/local/etc/pvpgn
+      - ./pvpgn/var/pvpgn:/usr/local/var/pvpgn
+    networks:
+      - internal
+
+  d2dbs:
+    restart: unless-stopped
+    container_name: d2dbs_server
+    image: ender25/pvpgn-server:d2dbs-mysql
+    ports:
+      - 6114:6114
+      - 6114:6114/udp
+    volumes:
+      - ./pvpgn/etc/pvpgn:/usr/local/etc/pvpgn
+      - ./pvpgn/var/pvpgn:/usr/local/var/pvpgn
+    networks:
+      - internal
+
+  pvpgn-db:
+    restart: unless-stopped
+    container_name: pvpgn_databse
+    image: ender25/pvpgn-server:mysql-db
+    ports:
+      - 127.0.0.1:3306:3306
+    volumes:
+      - ./pvpgn/database:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: "bnetd"
+      MYSQL_USER: "bnetd"
+      MYSQL_PASSWORD: "secret" # this is not a risk
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+    networks:
+      - internal
+
+  pvpgn-stats:
+    restart: unless-stopped
+    container_name: pvppg_stats_server
+    depends_on:
+      - pvpgn-db
+    image: ender25/pvpgn-server:web-server
+    volumes:
+      - ./pvpgn-stats:/var/www/html
+      - ./pvpgn/var/pvpgn/ladders:/ladders
+    ports:
+      - 8082:80
+    env_file:
+      - .env-pvpgn
+    networks:
+      - internal
+      - proxy
 
   ghostpp:
     restart: unless-stopped
     container_name: ghostpp_server
     depends_on:
       - pvpgn
+      - ghostpp-db
     image: fatorin/ghostpp:1.3
     ports:
-      - 6113:6113
-      - 6114:6114
+      - 6320:6320
+      - 6321:6321
     volumes:
       - ./ghostpp/config:/app/config
       - ./ghostpp/maps:/app/maps
@@ -43,15 +99,15 @@ services:
     networks:
       - internal
 
-  ghostpp_2:
+  ghostpp-2:
     restart: unless-stopped
     container_name: ghostpp_2_server
     depends_on:
       - pvpgn
     image: fatorin/ghostpp:1.3
     ports:
+      - 6322:6322
       - 6323:6323
-      - 6324:6324
     volumes:
       - ./ghostpp/config:/app/config
       - ./ghostpp/maps:/app/maps
@@ -59,12 +115,10 @@ services:
     networks:
       - internal
 
-  ghostpp_db:
+  ghostpp-db:
     restart: unless-stopped
     container_name: ghostpp_databse
-    depends_on:
-      - ghostpp
-    image: mysql:5.7
+    image: ender25/pvpgn-server:mysql-db
     volumes:
       - ./ghostpp/database:/var/lib/mysql
     environment:
@@ -75,32 +129,33 @@ services:
     networks:
       - internal
 
-  stats:
+  dota-stats:
     restart: unless-stopped
-    container_name: stats_server
+    container_name: dota_stats_server
     depends_on:
-      - ghostpp_db
-    image: php:5.4-apache
+      - ghostpp-db
+    image: ender25/pvpgn-server:web-server
     volumes:
-      - ./openstats:/var/www/html
+      - ./dota-stats:/var/www/html
     ports:
       - 8081:80
     env_file:
-      - .env
+      - .env-ghostpp
     networks:
       - internal
       - proxy
 
   phpmyadmin:
     restart: unless-stopped
-    container_name: ghostpp_database_admin
+    container_name: pvpgn_database_admin
     depends_on:
-      - ghostpp_db
+      - ghostpp-db
     image: phpmyadmin/phpmyadmin
     ports:
-      - 127.0.0.1:8085:80
+      - 8085:80 # TODO: Change
+#      - 127.0.0.1:8085:80
     environment:
-      PMA_HOST: ghostpp_db
+      PMA_HOSTS: "pvpgn-db,ghostpp-db"
     networks:
       - internal
 

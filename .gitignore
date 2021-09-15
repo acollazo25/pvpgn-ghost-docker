@@ -1,7 +1,11 @@
 .idea
 .env
+.env-pvpgn
+.env-ghostpp
 pvpgn/var
 pvpgn/etc
+pvpgn/database
+pvpgn-stats/config.inc.php
 ghostpp/database
 ghostpp/config/ghost.cfg
 ghostpp/config/ghost.*.cfg
