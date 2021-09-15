@@ -86,7 +86,7 @@ docker exec -i ghostpp_databse mysql -ughost -psecret ghost < ghostpp/db-populat
 docker-compose up -d pvpgn d2cs d2dbs ghostpp
 ```
 
-### 🚩 Start pvpgn and ghostpp services (LINUX)
+### 🚩 Start pvpgn, d2cs, d2dbs and ghostpp services (LINUX)
 
 ```shell
 docker-compose up -d pvpgn-linux d2cs d2dbs ghostpp
@@ -162,6 +162,9 @@ bnet_rootadmin = yourAccount friendAccount otherFriend
 ### 📊 [Optional] Setup Pvpgn Stats (*)
 1. Copy `pvpgn-stats/config.inc.example.php` to `pvpgn-stats/config.inc.php`.
 ```shell
+cp pvpgn-stats/config.inc.example.php pvpgn-stats/config.inc.php
+```
+```shell
 server_URL = http://<your-public-ip>:8081/
 ```
 2. Edit `pvpgn-stats/config.inc.php` and set the following settings. (WINDWOS / MAC)
@@ -188,12 +191,12 @@ $ladderroot = "https://stats-domain.com/"; # include last /
 ```shell
 docker-compose up -d pvpgn-stats
 ```
-3. Run Seeders.
+4. Run Seeders.
 ```shell
 docker exec -i pvpgn_databse mysql -ubnetd -psecret bnetd < pvpgn-stats/migrations/d2ladder.sql
 docker exec -i pvpgn_databse mysql -ubnetd -psecret bnetd < pvpgn-stats/migrations/stats.sql
 ```
-4. Open in browser [Pvpgn Stats](🌐 http://127.0.0.1:8082/)
+5. Open in browser [Pvpgn Stats](🌐 http://127.0.0.1:9082/)
 
 ### 📊 [Optional] Setup Dota OpenStats (*)
 1. Up service.
@@ -202,7 +205,7 @@ docker-compose up -d dota-stats
 ```
 2. Set stats page. Edit the file `pvpgn/etc/pvpgn/anongame_infos.conf` and set the following settings.
 ```shell
-server_URL = http://<your-public-ip>:8081/
+server_URL = http://<your-public-ip>:9081/
 ```
 or
 ```
@@ -217,7 +220,7 @@ docker-compose restart pvpgn
 ```shell
 docker-compose restart pvpgn-linux
 ```
-4. Open in browser [Pvpgn Stats](🌐 http://127.0.0.1:8081/)
+4. Open in browser [Pvpgn Stats](🌐 http://127.0.0.1:9081/)
 
 ### 📄 View Logs
 #### Pvpgn Logs (WINDOWS / MAC)

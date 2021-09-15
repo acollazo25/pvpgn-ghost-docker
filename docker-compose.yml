@@ -75,7 +75,7 @@ services:
       - ./pvpgn-stats:/var/www/html
       - ./pvpgn/var/pvpgn/ladders:/ladders
     ports:
-      - 8082:80
+      - 9082:80
     env_file:
       - .env-pvpgn
     networks:
@@ -138,7 +138,7 @@ services:
     volumes:
       - ./dota-stats:/var/www/html
     ports:
-      - 8081:80
+      - 9081:80
     env_file:
       - .env-ghostpp
     networks:
