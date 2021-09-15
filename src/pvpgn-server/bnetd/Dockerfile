@@ -69,7 +69,11 @@ WORKDIR /usr/local/sbin
 
 # Expose ports for bnetd, d2cs and d2dbs
 EXPOSE 6112 \
-       6112/udp
+       6112/udp \
+       6200 \
+       6200/udp
+       4000 \
+       4000/udp
 
 ENV SERVER_TYPE bnetd
 CMD exec $SERVER_TYPE -D

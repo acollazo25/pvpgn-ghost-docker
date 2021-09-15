@@ -5,6 +5,7 @@ services:
     restart: unless-stopped
     container_name: pvpgn_server
     image: ender25/pvpgn-server:bnetd-mysql
+    user: root
     ports:
       - 6112:6112
       - 6112:6112/udp
@@ -18,6 +19,7 @@ services:
       restart: unless-stopped
       container_name: pvpgn_linux_server
       image: ender25/pvpgn-server:bnetd-mysql
+      user: root
       network_mode: "host"
       volumes:
         - ./pvpgn/etc/pvpgn:/usr/local/etc/pvpgn
