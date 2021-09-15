@@ -188,7 +188,7 @@ docker-compose logs -f --tail 200 ghostpp
 ```
 
 ### ✉️ Contact
-[Creating a issue](https://github.com/acollazo25/pvpgn-ghost-docker/issues)
+[Creating an issue](https://github.com/acollazo25/pvpgn-ghost-docker/issues)
 
 ### 🎉 Acknowledgements
 -   [🙌 Pvpgn Official Page](https://pvpgn.pro/)
